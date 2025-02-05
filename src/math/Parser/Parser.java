@@ -54,7 +54,7 @@ public class Parser {
             return ret;
         }
 
-        throw new ParserException("not implemented");
+        throw new ParserException("invalid factor form");
     }
 
     private AExpr term() throws ParserException {
