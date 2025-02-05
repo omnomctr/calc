@@ -44,6 +44,9 @@ public class Lexer {
             case '%': {
                 ret = new Token(TokenType.MODULO);
             } break;
+            case '^': {
+                ret = new Token(TokenType.POW);
+            } break;
 
             default: {
                 if (Character.isDigit(ch)) {

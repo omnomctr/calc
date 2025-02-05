@@ -13,6 +13,7 @@ public class Token {
         DIVIDE,
         MODULO,
         NUMBER,
+        POW,
         EOF,
     }
 
@@ -52,10 +53,10 @@ public class Token {
             case MODULO: return "{MODULO}";
             case NUMBER: return "{NUMBER " + getNum() + "}";
             case EOF: return "{EOF}"; 
-
-            default: 
-                return "what";
+            case POW: return "{POW}";
         }
+
+        return "what";
     }
     
 }
