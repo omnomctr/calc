@@ -1,10 +1,10 @@
 package math.Expr;
 
-public class Mult extends AExpr {
-    AExpr lhs;
-    AExpr rhs;
+public class Mult extends AbstractExpr {
+    AbstractExpr lhs;
+    AbstractExpr rhs;
 
-    public Mult(AExpr a, AExpr b) {
+    public Mult(AbstractExpr a, AbstractExpr b) {
         lhs = a; rhs = b;
     }
 

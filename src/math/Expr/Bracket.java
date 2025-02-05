@@ -1,9 +1,9 @@
 package math.Expr;
 
-public class Bracket extends AExpr {
-    AExpr value;
+public class Bracket extends AbstractExpr {
+    AbstractExpr value;
 
-    public Bracket(AExpr val) {
+    public Bracket(AbstractExpr val) {
         value = val;
     }
 

@@ -1,10 +1,10 @@
 package math.Expr;
 
-public class Div extends AExpr {
-    AExpr lhs;
-    AExpr rhs;
+public class Div extends AbstractExpr {
+    AbstractExpr lhs;
+    AbstractExpr rhs;
 
-    public Div(AExpr a, AExpr b) {
+    public Div(AbstractExpr a, AbstractExpr b) {
         lhs = a; rhs = b;
     }
 

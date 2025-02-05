@@ -13,7 +13,7 @@ public class Parser {
         currentToken = l.nextToken();
     }
 
-    public AExpr parse() throws ParserException {
+    public AbstractExpr parse() throws ParserException {
         return expr();
     }
 
@@ -33,12 +33,12 @@ public class Parser {
         }
     }
 
-    private AExpr factor() throws ParserException {
+    private AbstractExpr factor() throws ParserException {
         Token token = currentToken;
 
         if (token.kind == TokenType.NUMBER) {
             eat(TokenType.NUMBER);
-            AExpr ret = new Number(token.getNum());
+            AbstractExpr ret = new Number(token.getNum());
             if (currentToken.kind == TokenType.LPAREN) {
                 ret = new Mult(ret, factor());
             }
@@ -48,7 +48,7 @@ public class Parser {
             return new UnaSub(factor());
         } else if (token.kind == TokenType.LPAREN) {
             eat(TokenType.LPAREN);
-            AExpr ret = expr();
+            AbstractExpr ret = expr();
             eat(TokenType.RPAREN);
 
             return ret;
@@ -57,8 +57,8 @@ public class Parser {
         throw new ParserException("invalid factor form");
     }
 
-    private AExpr term() throws ParserException {
-        AExpr ret = factor();
+    private AbstractExpr term() throws ParserException {
+        AbstractExpr ret = factor();
         while (currentToken.kind == TokenType.TIMES || currentToken.kind == TokenType.DIVIDE) {
             Token tok = currentToken;
             if (tok.kind == TokenType.TIMES) {
@@ -73,8 +73,8 @@ public class Parser {
         return ret;
     }
 
-    private AExpr expr() throws ParserException {
-        AExpr ret = term();
+    private AbstractExpr expr() throws ParserException {
+        AbstractExpr ret = term();
         while (currentToken.kind == TokenType.PLUS || currentToken.kind == TokenType.MINUS) {
             Token tok = currentToken;
             if (tok.kind == TokenType.PLUS) {

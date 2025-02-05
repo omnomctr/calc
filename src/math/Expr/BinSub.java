@@ -1,11 +1,11 @@
 package math.Expr;
 
 /* binary minus operator (subtraction) */
-public class BinSub extends AExpr {
-    AExpr lhs;
-    AExpr rhs;
+public class BinSub extends AbstractExpr {
+    AbstractExpr lhs;
+    AbstractExpr rhs;
 
-    public BinSub(AExpr a, AExpr b) {
+    public BinSub(AbstractExpr a, AbstractExpr b) {
         lhs = a; rhs = b;
     }
     

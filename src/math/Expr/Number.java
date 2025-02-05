@@ -1,6 +1,6 @@
 package math.Expr;
 
-public class Number extends AExpr {
+public class Number extends AbstractExpr {
     double value;
 
     public Number(double n) {

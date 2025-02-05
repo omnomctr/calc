@@ -1,10 +1,10 @@
 package math.Expr;
 
 /* unary minus ie -1 */
-public class UnaSub extends AExpr {
-    AExpr negValue;
+public class UnaSub extends AbstractExpr {
+    AbstractExpr negValue;
 
-    public UnaSub(AExpr val) {
+    public UnaSub(AbstractExpr val) {
         negValue = val;
     }
 
