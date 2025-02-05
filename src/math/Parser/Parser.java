@@ -38,7 +38,14 @@ public class Parser {
 
         if (token.kind == TokenType.NUMBER) {
             eat(TokenType.NUMBER);
-            return new Number(token.getNum());
+            AExpr ret = new Number(token.getNum());
+            if (currentToken.kind == TokenType.LPAREN) {
+                ret = new Mult(ret, factor());
+            }
+            return ret;
+        } else if (token.kind == TokenType.MINUS) { /* unary minus */
+            eat(TokenType.MINUS);
+            return new UnaSub(factor());
         } else if (token.kind == TokenType.LPAREN) {
             eat(TokenType.LPAREN);
             AExpr ret = expr();
