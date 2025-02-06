@@ -59,8 +59,10 @@ public class Parser {
 
     private AbstractExpr term() throws ParserException {
         AbstractExpr ret = factor();
-        while (currentToken.kind == TokenType.TIMES || currentToken.kind == TokenType.DIVIDE
-            || currentToken.kind == TokenType.POW) {
+        while (currentToken.kind == TokenType.TIMES 
+                || currentToken.kind == TokenType.DIVIDE
+                || currentToken.kind == TokenType.POW
+                || currentToken.kind == TokenType.MODULO) {
             Token tok = currentToken;
             if (tok.kind == TokenType.TIMES) {
                 eat(TokenType.TIMES);
@@ -71,6 +73,9 @@ public class Parser {
             } else if (tok.kind == TokenType.POW) {
                 eat(TokenType.POW);
                 ret = new Pow(ret, term());
+            } else if (tok.kind == TokenType.MODULO) {
+                eat(TokenType.MODULO);
+                ret = new Mod(ret, term());
             }
         }
 
